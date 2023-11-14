@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\WebFrontend\HomeComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
+Route::get('/', HomeComponent::class)->name('home');
 
 Route::middleware([
     'auth:sanctum',
