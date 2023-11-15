@@ -4,6 +4,7 @@ namespace App\Livewire\WebFrontend;
 
 use Livewire\Component;
 use App\Models\Skills;
+use App\Models\About;
 
 class HomeComponent extends Component
 {
@@ -11,6 +12,7 @@ class HomeComponent extends Component
     {
         $skills = Skills::limit(5)->get();
         $skills2 = Skills::orderBy("id","desc")->limit(5)->get();
-        return view('livewire.web-frontend.home-component',["myskills"=>$skills,"myskills2"=>$skills2])->layout('layouts.base');
+        $about = About::first();
+        return view('livewire.web-frontend.home-component',["myskills"=>$skills,"myskills2"=>$skills2,"about"=>$about])->layout('layouts.base');
     }
 }
